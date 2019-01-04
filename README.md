@@ -32,16 +32,20 @@ sudo pip install ansible
 * Configure Ansible managed nodes
   * Create and distribute SSH keys to managed nodes
 
-# Generate ssh key on master node
+##### Generate ssh key on master node
 ```
 ansibleuser@host> ssh-keygen -t rsa
 ```
-# Copy public key to servers
+##### Copy public key to servers
 ```
 ansibleuser@host> ssh-copy-id ansibleuser@server1
 ansibleuser@host> ssh-copy-id ansibleuser@server2
 ansibleuser@host> ssh-copy-id ansibleuser@server3
-...
+```
+##### Test ssh setup
+```
+ansible all -m ping
+```
 
   * Configure privilege escalation on managed nodes
   * Validate a working configuration using ad-hoc Ansible commands
