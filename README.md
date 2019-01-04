@@ -87,6 +87,9 @@ ansible-doc lineinfile
 ```
 ansible-doc --list
 ```
-
+##### Show a summary of the module options
+```
+ansible-doc -s firewalld
+```
 
 As with all Red Hat performance-based exams, configurations must persist after reboot without intervention.
