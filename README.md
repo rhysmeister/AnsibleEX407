@@ -16,6 +16,16 @@ You should be able to:
   * Playbooks
   * Configuration files
 * Install and configure an Ansible control node
+
+##### Install Ansible with yum
+```
+sudo yum install ansible
+```
+##### Install with pip
+```
+sudo pip install ansible
+```
+
   * Install required packages
   * Create a static host inventory file
   * Create a configuration file
