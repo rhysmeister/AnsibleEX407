@@ -83,5 +83,10 @@ ansible-vault encrypt_string --vault-id a_password_file 'foobar' --name 'the_sec
 ```
 ansible-doc lineinfile
 ```
+##### List available modules
+```
+ansible-doc --list
+```
+
 
 As with all Red Hat performance-based exams, configurations must persist after reboot without intervention.
