@@ -52,27 +52,27 @@ You should be able to:
 
 [Ansible Vault Documentation](https://docs.ansible.com/ansible/2.4/vault.html)
 
-#Create a file with vault
+# Create a file with vault
 ```
 ansible-vault create variables.yml
 ```
-#Edit an encrypted file with vault
+# Edit an encrypted file with vault
 ```
 ansible-vault edit variables.yml
 ```
-#Change the password used to encrypt a file
+# Change the password used to encrypt a file
 ```
 ansible-vault rekey variables.yml
 ```
-#Encrypting existing files
+# Encrypting existing files
 ```
 ansible-vault encrypt variables.yml
 ```
-#Decrypting files
+# Decrypting files
 ```
 ansible-vault decrypt variables.yml variables2.yml
 ```
-#Use encrypt_string to create encrypted variables to embed in yaml
+# Use encrypt_string to create encrypted variables to embed in yaml
 ```
 ansible-vault encrypt_string --vault-id a_password_file 'foobar' --name 'the_secret'
 ```
