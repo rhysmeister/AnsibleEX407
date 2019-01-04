@@ -172,3 +172,7 @@ ansible-doc -s firewalld
 ```
 
 As with all Red Hat performance-based exams, configurations must persist after reboot without intervention.
+
+##### Additional Tips
+
+1. If selinux is enabled install libselinux-python before using file/copy/template modules.
