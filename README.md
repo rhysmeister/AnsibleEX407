@@ -47,6 +47,22 @@ You should be able to:
 * Work with Ansible variables and facts
 * Create and work with roles
 * Download roles from an Ansible Galaxy and use them
+
+[Ansible Galaxy](https://galaxy.ansible.com/docs/)
+
+##### Install a role from Galaxy
+```
+ansible-galaxy install geerlingguy.docker
+```
+##### Install a role from github
+```
+ansible-galaxy install ansible-galaxy install https://github.com/rhysmeister/role/role.tar.gz
+```
+##### Install multiple roles from a files
+```
+ansible-galaxy install -r requirements.yml
+```
+
 * Manage parallelism
 * Use Ansible Vault in playbooks to protect sensitive data
 
