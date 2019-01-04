@@ -31,6 +31,18 @@ sudo pip install ansible
   * Create a configuration file
 * Configure Ansible managed nodes
   * Create and distribute SSH keys to managed nodes
+
+# Generate ssh key on master node
+```
+ansibleuser@host> ssh-keygen -t rsa
+```
+# Copy public key to servers
+```
+ansibleuser@host> ssh-copy-id ansibleuser@server1
+ansibleuser@host> ssh-copy-id ansibleuser@server2
+ansibleuser@host> ssh-copy-id ansibleuser@server3
+...
+
   * Configure privilege escalation on managed nodes
   * Validate a working configuration using ad-hoc Ansible commands
 * Create simple shell scripts that run ad hoc Ansible commands
@@ -56,6 +68,12 @@ sudo pip install ansible
 * Create and use templates to create customized configuration files
 * Work with Ansible variables and facts
 * Create and work with roles
+
+##### Create an skeleton role with ansible-galaxy
+```
+ansible-galaxy init myrole
+```
+
 * Download roles from an Ansible Galaxy and use them
 
 [Ansible Galaxy](https://galaxy.ansible.com/docs/)
