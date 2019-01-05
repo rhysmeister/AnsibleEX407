@@ -48,6 +48,29 @@ ansible all -m ping
 ```
 
   * Configure privilege escalation on managed nodes
+
+##### Configure passwordless sudo on Redhat / CentOS
+
+```
+sudo useradd ansible
+sudo passwd ansible
+sudo visudo
+```
+
+Add the following line and save the file...
+
+```
+ansible ALL=(ALL)       NOPASSWD:ALL
+```
+
+##### Configure sudo with password on Redhat CentOS
+
+This method is more secure. Follow the steps above but enter this line when in visudo...
+
+```
+ansible ALL=(ALL)       ALL
+```
+
   * Validate a working configuration using ad-hoc Ansible commands
 * Create simple shell scripts that run ad hoc Ansible commands
 * Use both static and dynamic inventories to define groups of hosts
