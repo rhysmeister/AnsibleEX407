@@ -47,6 +47,11 @@ ansibleuser@host> ssh-copy-id ansibleuser@server3
 ansible all -m ping
 ```
 
+##### Relevant links
+
+[Automate ssh-copy-id with a list of hosts](http://www.youdidwhatwithtsql.com/ssh-copy-id-automation-with-a-list-of-hosts/2412/)
+[Automate ssh-copy-id with a numbered hostname format](http://www.youdidwhatwithtsql.com/automate-ssh-copy-id-with-numbered-hosts/2400/)
+
   * Configure privilege escalation on managed nodes
 
 ##### Configure passwordless sudo on Redhat / CentOS
