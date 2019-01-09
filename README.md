@@ -272,6 +272,26 @@ ansible-doc --list
 ansible-doc -s firewalld
 ```
 
+##### Use restview to to make the Ansible rst documentation browsable
+
+Install pip and restview
+
+```
+sudo yum install python-pip
+sudo pip install restview
+```
+Luanch a server on the specified port. Documentation can be access here..
+
+```
+restview /usr/share/doc/ansible-doc-2.7.5/rst/ --listen *:33333 &
+```
+
+Or if you're on a desktop launch a browser
+
+```
+restview /usr/share/doc/ansible-doc-2.7.5/rst/ --browser
+```
+
 As with all Red Hat performance-based exams, configurations must persist after reboot without intervention.
 
 ##### Additional Tips
