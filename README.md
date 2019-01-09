@@ -88,17 +88,87 @@ ansible ALL=(ALL)       ALL
   * Create playbooks to configure systems to a specified state
 * Use Ansible modules for system administration tasks that work with:
   * Software packages and repositories
+    [yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html)
+    [yum_repository module](https://docs.ansible.com/ansible/latest/modules/yum_repository_module.html)
+    [package module](https://docs.ansible.com/ansible/latest/modules/package_module.html)
+    [pip module](https://docs.ansible.com/ansible/latest/modules/pip_module.html#pip-module)
+    [easyinstall module](https://docs.ansible.com/ansible/latest/modules/easy_install_module.html#easy-install-module)
+
+    [List of packaging modules](https://docs.ansible.com/ansible/latest/modules/list_of_packaging_modules.html)
   * Services
+    * [service module](https://docs.ansible.com/ansible/latest/modules/service_module.html)
+    * [systemd module](https://docs.ansible.com/ansible/latest/modules/systemd_module.html)
+    * [service_facts module](https://docs.ansible.com/ansible/latest/modules/service_facts_module.html)
   * Firewall rules
+    * [firewalld module](https://docs.ansible.com/ansible/latest/modules/firewalld_module.html)
+    * [ufw module](https://docs.ansible.com/ansible/latest/modules/ufw_module.html)
+    * [iptables module](https://docs.ansible.com/ansible/latest/modules/iptables_module.html)
   * File systems
+    * [List of file modules](https://docs.ansible.com/ansible/latest/modules/list_of_files_modules.html)
   * Storage devices
   * File content
+    [List of file modules](https://docs.ansible.com/ansible/latest/modules/list_of_files_modules.html)
   * Archiving
+    * [archive module](https://docs.ansible.com/ansible/latest/modules/archive_module.html)
+    * [unarchive module](https://docs.ansible.com/ansible/latest/modules/unarchive_module.html)
   * Scheduled tasks
+    * [cron module](https://docs.ansible.com/ansible/latest/modules/cron_module.html)
+    * [at module](https://docs.ansible.com/ansible/latest/modules/at_module.html)
   * Security
   * Users and groups
+    * [user module](https://docs.ansible.com/ansible/latest/modules/user_module.html)
+    * [group module](https://docs.ansible.com/ansible/latest/modules/group_module.html)
 * Create and use templates to create customized configuration files
+  * [template module](https://docs.ansible.com/ansible/latest/modules/template_module.html)
+  * [templating jinja2](https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html)
+
+##### Generate a /etc/hosts file with a Jinja template
+
+The following template....
+
+```
+# {{ ansible_managed }}
+127.0.0.1   localhost
+::1         localhost ip6-localhost ip6-loopback
+
+# The following lines are desirable for IPv6 capable hosts.
+fe00::0     ip6-localnet
+ff00::0     ip6-mcastprefix
+ff02::1     ip6-allnodes
+ff02::2     ip6-allrouters
+
+# Network nodes as generated through Ansible.
+{% for host in play_hosts %}
+{{ hostvars[host]['ansible_eth1']['ipv4']['address'] }}  {{ host }}
+{% endfor %}
+```
+
+Will produce something like this...
+
+```
+# Ansible managed
+127.0.0.1   localhost
+::1         localhost ip6-localhost ip6-loopback
+
+# The following lines are desirable for IPv6 capable hosts.
+fe00::0     ip6-localnet
+ff00::0     ip6-mcastprefix
+ff02::1     ip6-allnodes
+ff02::2     ip6-allrouters
+
+# Network nodes as generated through Ansible.
+192.168.44.101  cnode1
+192.168.44.102  cnode2
+```
+
 * Work with Ansible variables and facts
+  * [setup module](https://docs.ansible.com/ansible/latest/modules/setup_module.html)
+
+##### List all facts on the localhost
+```
+ansible localhost -m setup
+```
+
 * Create and work with roles
 
 ##### Create an skeleton role with ansible-galaxy
@@ -155,6 +225,9 @@ ansible-galaxy install -r requirements.yml
   ```
 
 * Manage parallelism
+
+See --forks option https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html#cmdoption-ansible-playbook-f
+
 * Use Ansible Vault in playbooks to protect sensitive data
 
 [Ansible Vault Documentation](https://docs.ansible.com/ansible/2.4/vault.html)
