@@ -8,6 +8,9 @@ To help you prepare, the exam objectives highlight the task areas you can expect
 You should be able to:
 
 * Understand core components of Ansible
+
+[Ansible Basic Concepts](https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html)
+
   * Inventories
 
 A list of managed nodes. An inventory file is also sometimes called a “hostfile”. Your inventory can specify information like IP address for each managed node. An inventory can also organize managed nodes, creating and nesting groups for easier scaling. To learn more about inventory, see the [Working with Inventory pages](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
@@ -108,12 +111,27 @@ ansible ALL=(ALL)       ALL
   * Validate a working configuration using ad-hoc Ansible commands
 * Create simple shell scripts that run ad hoc Ansible commands
 * Use both static and dynamic inventories to define groups of hosts
+
+[Working with Dynamic Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html)
+
 * Utilize an existing dynamic inventory script
+
+Using a dynamic inventory is very similar to a static one...
+
+```
+ansible -i openstack_inventory.py all -m ping
+```
+
+Hint: The inventory script must be set to executable!
+
 * Create Ansible plays and playbooks
   * Know how to work with commonly used Ansible modules
   * Use variables to retrieve the results of running commands
   * Use conditionals to control play execution
   * Configure error handling
+
+[Error handling in Ansible](https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html)
+
   * Create playbooks to configure systems to a specified state
 * Use Ansible modules for system administration tasks that work with:
   * Software packages and repositories
