@@ -9,13 +9,42 @@ You should be able to:
 
 * Understand core components of Ansible
   * Inventories
+
+A list of managed nodes. An inventory file is also sometimes called a “hostfile”. Your inventory can specify information like IP address for each managed node. An inventory can also organize managed nodes, creating and nesting groups for easier scaling. To learn more about inventory, see the [Working with Inventory pages](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
+
   * Modules
+
+The units of code Ansible executes. Each module has a particular use, from administering users on a specific type of database to managing VLAN interfaces on a specific type of network device. You can invoke a single module with a task, or invoke several different modules in a playbook.
+
+[List of all modules](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
+
   * Variables
+
+[Using Variables](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html)
+
   * Facts
+
+  There are other places where variables can come from, but these are a type of variable that are discovered, not set by the user. Facts are information derived from speaking with your remote systems. You can find a complete set under the ansible_facts variable, most facts are also ‘injected’ as top level variables preserving the ansible_ prefix, but some are dropped due to conflicts. This can be disabled via the INJECT_FACTS_AS_VARS setting. An example of this might be the IP address of the remote host, or what the operating system is.
+
+  [Variables discovered from systems: Facts](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variables-discovered-from-systems-facts)
+
   * Plays
+
+A play is a logical grouping of tasks. For example a play might setup your web servers, a second could update your datanase servers, a third could update a load balancer. All these plays could be contained within a single playbook.
+
   * Playbooks
+
+Ordered lists of tasks, saved so you can run those tasks in that order repeatedly. Playbooks can include variables as well as tasks. Playbooks are written in YAML and are easy to read, write, share and understand.
+
+[Intro to Playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html)
+
   * Configuration files
+
+[Ansible configuration file](https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html#configuration-file)
+
 * Install and configure an Ansible control node
+
+Any machine with Ansible installed. You can run commands and playbooks, invoking /usr/bin/ansible or /usr/bin/ansible-playbook, from any control node. You can use any computer that has Python installed on it as a control node - laptops, shared desktops, and servers can all run Ansible. However, you cannot use a Windows machine as a control node. You can have multiple control nodes.
 
 ##### Install Ansible with yum
 ```
