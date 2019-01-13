@@ -436,7 +436,7 @@ Install pip and restview
 sudo yum install python-pip
 sudo pip install restview
 ```
-Luanch a server on the specified port. Documentation can be access here..
+Launch a server on the specified port. Documentation can be access here..
 
 ```
 restview /usr/share/doc/ansible-doc-2.7.5/rst/ --listen *:33333 &
