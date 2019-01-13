@@ -127,6 +127,24 @@ Hint: The inventory script must be set to executable!
 * Create Ansible plays and playbooks
   * Know how to work with commonly used Ansible modules
   * Use variables to retrieve the results of running commands
+
+Using the register keyword we can save the result of a command execution into a variable for later use.
+
+```
+- name: test play
+  hosts: all
+
+  tasks:
+
+      - shell: cat /etc/motd
+        register: motd_contents
+
+      - shell: echo "motd contains the word hi"
+        when: motd_contents.stdout.find('hi') != -1
+```
+
+[Ansible Register Variables](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html#register-variables)
+
   * Use conditionals to control play execution
 
 ##### when
