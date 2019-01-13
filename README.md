@@ -128,6 +128,43 @@ Hint: The inventory script must be set to executable!
   * Know how to work with commonly used Ansible modules
   * Use variables to retrieve the results of running commands
   * Use conditionals to control play execution
+
+##### when
+
+Some examples;
+
+```
+when: ansible_facts['os_family'] == "Debian"
+when: ansible_hostname == "cnode1"
+when: order_constraint.changed == True
+when:
+  - ansible_hostname == "cnode1"
+  - ansible_play_hosts | length % 2 == 0
+  when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6") or
+            (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "7")
+```
+
+Further examples showing how to test for cmd errors...
+
+```
+tasks:
+  - command: /bin/false
+    register: result
+    ignore_errors: True
+
+  - command: /bin/something
+    when: result is failed
+
+  # In older versions of ansible use ``success``, now both are valid but succeeded uses the correct tense.
+  - command: /bin/something_else
+    when: result is succeeded
+
+  - command: /bin/still/something_else
+    when: result is skipped
+```
+
+[Ansible Conditionals](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html)
+
   * Configure error handling
 
 [Error handling in Ansible](https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html)
