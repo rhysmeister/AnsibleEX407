@@ -60,6 +60,28 @@ sudo pip install ansible
 
   * Install required packages
   * Create a static host inventory file
+
+A basic inventory might look like the following
+
+```
+[webservers]
+web1
+web2
+web3
+
+[dbs]
+db1
+db2
+
+[linux:children]
+werbservers
+dbs
+
+[loadbalancers]
+lb1
+lb2
+```
+
   * Create a configuration file
 * Configure Ansible managed nodes
   * Create and distribute SSH keys to managed nodes
