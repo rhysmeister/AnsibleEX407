@@ -207,6 +207,38 @@ tasks:
 
   * Configure error handling
 
+  We can ignore failures from modules by adding the following to a task...
+
+  ```
+  ignore_errors: yes
+  ```
+
+  By default handlers will not be run on failed hosts. Change this in the playbook with..
+
+  ```
+  force_handlers: True
+  ```
+
+  Can also be set via the command-line or in the config file.
+
+  Define custom failures on tasks with...
+
+```
+failed_when: diff_cmd.rc == 0 or diff_cmd.rc >= 2
+```
+
+Or...
+
+```
+changed_when: False
+```
+
+If you want to fail the entire play if anything at all fails then include this...
+
+```
+any_errors_fatal: true
+```
+
 [Error handling in Ansible](https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html)
 
   * Create playbooks to configure systems to a specified state
