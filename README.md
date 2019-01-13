@@ -74,7 +74,7 @@ db1
 db2
 
 [linux:children]
-werbservers
+webservers
 dbs
 
 [loadbalancers]
