@@ -13,7 +13,7 @@ You should be able to:
 
   * Inventories
 
-A list of managed nodes. An inventory file is also sometimes called a “hostfile”. Your inventory can specify information like IP address for each managed node. An inventory can also organize managed nodes, creating and nesting groups for easier scaling. To learn more about inventory, see the [Working with Inventory pages](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
+A list of managed nodes. An inventory file is also sometimes called a “hostfile”. Your inventory can specify information like IP address for each managed node. An inventory can also organize managed nodes, creating and nesting groups for easier scaling. To learn more about inventory, see the [Working with Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
 
   * Modules
 
