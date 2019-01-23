@@ -317,6 +317,12 @@ ff02::2     ip6-allrouters
 192.168.44.102  cnode2
 ```
 
+##### Looping in a template
+
+```
+We installed: {% for package in packages %}{{ package }}{% if not loop.last %}, {% endif %}{% endfor %}
+```
+
 * Work with Ansible variables and facts
   * [setup module](https://docs.ansible.com/ansible/latest/modules/setup_module.html)
 
